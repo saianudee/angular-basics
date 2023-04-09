@@ -1,27 +1,30 @@
-<div class="container">
+<div class="header">
   <form [formGroup]="bioData">
-    <div class="p-4">
+    <div class="form-section">
       <input mat-input formControlName="firstName" class="form-control" />
-      <div class="padding: 2px" *ngIf="fName && fName.invalid">
+      <div class="error-heading" *ngIf="fName && fName.invalid">
         Enter correct first name
       </div>
     </div>
-    <div class="p-4">
+    <div class="form-section">
       <input mat-input formControlName="lastName" class="form-control" />
-      <div class="padding: 2px" *ngIf="lName && lName.invalid">
+      <div class="error-heading" *ngIf="lName && lName.invalid">
         Enter correct last name
       </div>
     </div>
-    <div class="p-4">
+    <div class="form-section">
       <select formControlName="selectData" class="form-control">
         <option *ngFor="let item of countryData" [innerHTML]="item"></option>
         {{
           selectData
         }}
       </select>
+      <div class="error-heading" *ngIf="select && select.invalid">
+        Select country Name
+      </div>
     </div>
-    <br />
-    <div class="">
+
+    <div class="form-section">
       <button
         mat-button
         [disabled]="bioData.invalid"

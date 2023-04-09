@@ -6,12 +6,10 @@ import { countryData } from './data';
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css'],
+  styleUrls: ['./product-list.component.scss'],
 })
 export class ProductListComponent {
-  constructor() {
-    this.bioData.reset();
-  }
+  constructor() {}
   products = products;
   bioData = new FormGroup({
     firstName: new FormControl('', [
@@ -36,9 +34,7 @@ export class ProductListComponent {
   }
 
   get select() {
-    if (this.bioData.get('selectData').value === 'Africa') {
-      return 'Not allowed';
-    }
+    return this.bioData.get('selectData');
   }
   submitData(item) {
     console.log(item);
